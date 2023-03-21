@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="fi10.css" />
+  </head>
+  <body>
+    <style>
+      form {
+        font-family: Arial, sans-serif;
+        font-size: 11px;
+        color: #333;
+        text-align: left;
+        margin: 5px auto;
+        width: 400px;
+        padding: 8px;
+        border: 5px solid #4e4e4e;
+        border-radius: 5px;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 0.5fr 1.5fr; /* Creates 2 columns, 1/3 and 2/3 of the width */
+        grid-gap: 8px; /* Adds a gap between the columns */
+      }
+
+      body {
+        background-color: rgb(206, 204, 204);
+      }
+
+      label {
+        display: inline;
+        margin-bottom: 1px;
+        text-align: right; /* Aligns the labels to the right */
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      input[type="textarea"],
+      input[type="select"] {
+        font-size: 11px;
+        height: 3px;
+        padding: 6px;
+        margin-bottom: 2px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+      }
+
+      input[type="submit"] {
+        padding: 4px 30px;
+        background-color: #636363;
+        color: white;
+        border: none;
+        border-radius: 1px;
+        cursor: pointer;
+        font-size: 11px;
+      }
+
+
+
+      #createIrecButton:hover {
+        background-color: #82bde7;
+      }
+      #clearForm:hover {
+        background-color: #dd8cd2;
+      }
+      #copyIrecButton:hover {
+        background-color: #90ce66;
+      }
+
+    </style>
+
+    <form id="myForm">
+      <label for="bpemnumber">BPEM # / TYPE :</label>
+      <input
+        type="text"
+        id="bpemnumber"
+        autocomplete="off"
+        name="bpemnumber"
+        style="width: 85%"
+      />
+
+      <label for="accountInfo">ACCOUNT INFO :</label>
+      <textarea
+        id="accountInfo"
+        name="accountInfo"
+        rows="2"
+        style="width: 88%"
+      ></textarea>
+
+      <label for="credit">CREDIT :</label>
+      <input
+        type="text"
+        id="credit"
+        autocomplete="off"
+        name="credit"
+        style="width: 85%"
+      />
+
+      <label for="payer">PAYER :</label>
+      <input
+        type="text"
+        id="payer"
+        autocomplete="off"
+        name="payer"
+        style="width: 85%"
+      />
+
+      <label for="noActiveRefund"></label>
+      <div style="display: flex; align-items: center">
+        <input
+          type="radio"
+          id="noActiveRefund"
+          name="action"
+          value="1"
+        />
+        <label for="noActiveRefund">
+          No active CA found / Issued refund cheque</label
+        >
+      </div>
+
+      <label for="multipleCArefund"></label>
+      <div style="display: flex; align-items: center">
+        <input
+          type="radio"
+          id="multipleCArefund"
+          name="action"
+          value="2"
+        />
+        <label for="multipleCArefund"
+          >Multiple CAs for BP / Issued refund cheque</label
+        >
+      </div>
+
+      <label for="transferBalance"></label>
+      <div style="display: flex; align-items: center">
+        <input
+          type="radio"
+          id="transferBalance"
+          name="action"
+          value="3"
+        />
+        <label for="transferBalance">Transferred credit to active CA</label>
+      </div>
+
+      <label for="transferToCA"></label>
+      <div style="display: flex; align-items: center">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <label for="transferToCA">CA: &nbsp</label>
+        <input
+          type="text"
+          id="transferToCA"
+          name="transferToCA"
+          style="width: 200px"
+          disabled
+        />
+      </div>
+
+      <label for="lone4"></label>
+      <div style="display: flex; align-items: center">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="checkbox" 
+        id="lone4" 
+        name="lone4"
+        disabled
+         />
+        &nbsp&nbsp
+        <label for="lone4">Sent LONE4 letter </label>
+        
+
+      </div>
+
+      <label></label>
+      <textarea
+        rows="4"
+        name="irec"
+        style="width: 98%; grid-column: 1 / span 2;" /* Spans both columns */
+      ></textarea>
+      <input type="submit" 
+      id = "createIrecButton"
+      value="Create irec" />
+      
+      <input type="submit" 
+      id = "copyIrecButton"
+      value="Copy irec" />
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="submit" 
+      id = "clearForm"
+      value="Clear Form" />
+
+    </form>
+    <script src="fi10.js"></script>
+  </body>
+</html>
